@@ -62,4 +62,4 @@ Things you may want to cover:
 |image|string|null: false|
 
 ### Association
-- 
+- belongs_to :users
