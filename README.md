@@ -35,7 +35,7 @@ Things you may want to cover:
 - has_many :groups, through: :users_groups
 - has_many :messages
 
-##groupsテーブル
+## groupsテーブル
 |column|type|options|
 |------|----|-------|
 |name|string|null: false,foreign_key: true|
