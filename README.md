@@ -26,7 +26,7 @@ Things you may want to cover:
 ##usersテーブル
 |column|type|options|
 |------|----|-------|
-|name|string｜null: false,foreign_key: true|
+|name|string|null: false,foreign_key: true|
 |email|string|null: false,unique:true|
 |password|string|null: false|
 
@@ -38,11 +38,11 @@ Things you may want to cover:
 ##groupsテーブル
 |column|type|options|
 |------|----|-------|
-|name|string｜null: false,foreign_key: true|
+|name|string|null: false,foreign_key: true|
 
 ### Association
 - has_many :users_groups
-- has_many :user, through: :users_groups
+- has_many :users, through: :users_groups
 - belongs_to :message
 
 ##users_groupsテーブル
