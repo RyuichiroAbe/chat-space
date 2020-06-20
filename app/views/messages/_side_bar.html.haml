@@ -4,15 +4,15 @@
       %p.user_name__top_items__name 
         = current_user.name
       %ul.user_name__top_items__icons
-        = link_to "#", class: "user_name__top_items__icons__newgroup" do
+        = link_to new_group_path, class: "user_name__top_items__icons__newgroup" do
           = icon('far', 'edit')
         = link_to edit_user_path(current_user), class: "user_name__top_items__icons__edit" do
           = icon('fa', 'cog')
   .group_list
-    .group
-      %p.group__group_name am
-      %p.group__group_message まだメッセージはありません
-      %p.group__group_name ab
-      %p.group__group_message まだメッセージはありません
-      %p.group__group_name av
-      %p.group__group_message まだメッセージはありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
