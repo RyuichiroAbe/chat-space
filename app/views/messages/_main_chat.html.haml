@@ -7,9 +7,11 @@
       %li.group_info__member_list__member 
         - @group.users.each do |user|
           %li= user.name
-    %a{href: edit_group_path(@group), class: "group_info__edit_btn"} Edit
+    .group_info__edit_btn
+      = link_to edit_group_path(@group.id) do
+        Edit
       
-  .message_list
+  .messages
     = render @messages
   .message_form
     = form_for [@group, @message] do |f|
@@ -20,4 +22,3 @@
             = icon('fas', 'image')
             = f.file_field :image, class: 'message_form__new_message__input_box__image__file'
         = f.submit 'Send', class: 'btn'
-            
