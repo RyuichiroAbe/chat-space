@@ -11,7 +11,7 @@
       = link_to edit_group_path(@group.id) do
         Edit
       
-  .message_list
+  .messages
     = render @messages
   .message_form
     = form_for [@group, @message] do |f|

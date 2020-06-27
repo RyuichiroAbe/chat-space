@@ -1,10 +1,11 @@
-%div.message_list__upper
-  %p.message_list__upper__user_name 
-    = message.user.name
-  %p.message_list__upper__date_info 
-    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-%div.message_list__message
-  - if message.content.present?
-    %p.message_list__message_text
-      = message.content
-  = image_tag message.image.url, class: 'message_list__image' if message.image.present?
+.message_list
+  %div.message_list__upper
+    %p.message_list__upper__user_name 
+      = message.user.name
+    %p.message_list__upper__date_info 
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  %div.message_list__message
+    - if message.content.present?
+      %p.message_list__message_text
+        = message.content
+    = image_tag message.image.url, class: 'message_list__image' if message.image.present?
