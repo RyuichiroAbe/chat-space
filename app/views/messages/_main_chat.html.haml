@@ -1,31 +1,24 @@
 .main_chat
   .group_info
-    %p.group_info__current_group am
+    %p.group_info__current_group 
+      = @group.name
     %ul.group_info__member_list 
       member: 
-      %li.group_info__member_list__member aa
-      %li.group_info__member_list__member ac
-    %a{href: '#', class: "group_info__edit_btn"} Edit
+      %li.group_info__member_list__member 
+        - @group.users.each do |user|
+          %li= user.name
+    .group_info__edit_btn
+      = link_to edit_group_path(@group.id) do
+        Edit
       
-  .message_list
-    %div.message_list__upper
-      %p.message_list__upper__user_name aaaa
-      %p.message_list__upper__date_info 2020/06/15(Mon) 22:28:17
-    %p.message_list__message_text cc
-    %div.message_list__upper
-      %p.message_list__upper__user_name aaaa
-      %p.message_list__upper__date_info 2020/06/15(Mon) 22:28:17
-    %p.message_list__message_text cc
-  .message_from
-    %form.message_from__new_message
-      .message_from__new_message__input_box
-        %input.message_from__new_message__input_box__text
-        %label.message_from__new_message__input_box__image
-          = icon('fas', 'image')
-          %input{type: "file", class: "message_from__new_message__input_box__image__file"}
-      %button{type: "submit", class:'btn'}
-        .letter
-          send
-          
-        
-      
+  .messages
+    = render @messages
+  .message_form
+    = form_for [@group, @message] do |f|
+      .message_form__new_message
+        .message_form__new_message__input_box
+          = f.text_field :content, class: 'message_form__new_message__input_box__text', placeholder: 'type a message'
+          = f.label :image, class: 'message_form__new_message__input_box__image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'message_form__new_message__input_box__image__file'
+        = f.submit 'Send', class: 'btn'

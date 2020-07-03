@@ -61,16 +61,18 @@
   
   .group {
     height: 65px;
-    
-    &__group_name {
-      padding: 20px 20px 5px 20px;
+    a {
       color: #ffffff;
-      font-size: 15px;
+      text-decoration: none;
     }
     
-    &__group_message {
+    .group__name {
+      font-size: 15px;
+      padding: 20px 20px 5px 20px;
+    }
+    
+    .group__message {
       padding: 0 20px 40px 20px;
-      color: #ffffff;
       font-size: 11px;
     }
   }
@@ -107,41 +109,49 @@
       }
     }
     
-    &__edit_btn {
-      float: right;
-      text-decoration: none;
+    .group_info__edit_btn {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;;
+      border: solid 1px #38aef0;
       position: absolute;
-      right: 60px;
-      top: 28px;
+      top: 36px;
+      right: 40px;
+      a {
+        text-decoration: none;
+        color: #38aef0;
+      }
     }
   }
-  .message_list {
+  .messages {
     background-color: #fafafa;
     height: calc(100vh - 190px);
-    
-    &__upper {
-      padding: 46px 0 12px 40px;
-      display: flex;
-      &__user_name {
-        color: #333333;
-        font-size: 16px;
-        font-weight: bold;
+    overflow: scroll;
+    .message_list {
+      &__upper {
+        padding: 46px 0 12px 40px;
+        display: flex;
+        &__user_name {
+          color: #333333;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date_info {
+          color: #999999;
+          font-size: 12px;
+          padding-left: 10px;
+        }
       }
-      &__date_info {
-        color: #999999;
-        font-size: 12px;
-        padding-left: 10px;
+      
+      &__message_text {
+        color: #434A54;
+        font-size: 14px;
+        padding-left: 40px;
       }
-    }
-    
-    &__message_text {
-      color: #434A54;
-      font-size: 14px;
-      padding-left: 40px;
-    }  
+    } 
   }
   
-.message_from {
+.message_form {
   background-color: #d2d2d2;
   height: 90px;
   padding: 20px 40px;
